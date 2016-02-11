@@ -15,7 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activities.TutorialActivity">
+        <activity android:name=".activities.TutorialActivity"
+                  android:theme="@style/TutorialTheme">
         </activity>
     </application>
 
