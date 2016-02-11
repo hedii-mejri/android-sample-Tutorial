@@ -28,6 +28,6 @@ public class TutorialPagerAdapter extends FragmentPagerAdapter{
 
     @Override
     public int getCount() {
-        return 2;
+        return 5;
     }
 }

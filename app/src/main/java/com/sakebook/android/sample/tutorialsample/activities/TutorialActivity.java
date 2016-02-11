@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.sakebook.android.sample.tutorialsample.R;
+import com.sakebook.android.sample.tutorialsample.views.ViewPagerTransformer;
 import com.sakebook.android.sample.tutorialsample.views.adapters.TutorialPagerAdapter;
 
 public class TutorialActivity extends AppCompatActivity {
@@ -27,5 +28,6 @@ public class TutorialActivity extends AppCompatActivity {
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         TutorialPagerAdapter adapter = new TutorialPagerAdapter(getSupportFragmentManager(), getApplicationContext());
         viewPager.setAdapter(adapter);
+        viewPager.setPageTransformer(false, new ViewPagerTransformer());
     }
 }
