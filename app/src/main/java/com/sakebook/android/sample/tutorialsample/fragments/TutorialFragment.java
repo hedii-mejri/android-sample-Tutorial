@@ -33,10 +33,6 @@ public class TutorialFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(getArguments().getInt(RES_ARG), null);
-
-        double d = Math.random();
-        int color = (d > 0.5) ? Color.GREEN: Color.BLUE;
-        view.setBackgroundColor(color);
         return view;
     }
 }
