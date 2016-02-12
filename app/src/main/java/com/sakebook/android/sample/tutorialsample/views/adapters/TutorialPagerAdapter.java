@@ -1,7 +1,6 @@
 package com.sakebook.android.sample.tutorialsample.views.adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -23,7 +22,20 @@ public class TutorialPagerAdapter extends FragmentPagerAdapter{
 
     @Override
     public Fragment getItem(int position) {
-        return TutorialFragment.newInstance(R.layout.fragment_tutorial);
+        switch (position) {
+            default:
+                return TutorialFragment.newInstance(R.layout.fragment_tutorial_first);
+            case 0:
+                return TutorialFragment.newInstance(R.layout.fragment_tutorial_first);
+            case 1:
+                return TutorialFragment.newInstance(R.layout.fragment_tutorial_second);
+            case 2:
+                return TutorialFragment.newInstance(R.layout.fragment_tutorial_first);
+            case 3:
+                return TutorialFragment.newInstance(R.layout.fragment_tutorial_first);
+            case 4:
+                return TutorialFragment.newInstance(R.layout.fragment_tutorial_first);
+        }
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.sakebook.android.sample.tutorialsample.fragments;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
@@ -9,12 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.sakebook.android.sample.tutorialsample.views.TutorialViewHolder;
+
 /**
  * Created by sakemotoshinya on 16/02/11.
  */
 public class TutorialFragment extends Fragment{
 
-    private int layoutRes;
     private static final String RES_ARG = "res_arg";
 
     public TutorialFragment() {
@@ -28,11 +28,12 @@ public class TutorialFragment extends Fragment{
         return fragment;
     }
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(getArguments().getInt(RES_ARG), null);
+        int layoutRes = getArguments().getInt(RES_ARG);
+        View view = inflater.inflate(layoutRes, null);
+        TutorialViewHolder.makeViewHolder(layoutRes, view);
         return view;
     }
 }

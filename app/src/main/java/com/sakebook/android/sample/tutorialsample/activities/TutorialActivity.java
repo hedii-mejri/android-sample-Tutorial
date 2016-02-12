@@ -4,10 +4,10 @@ import android.animation.ArgbEvaluator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.sakebook.android.sample.tutorialsample.R;
 import com.sakebook.android.sample.tutorialsample.views.ViewPagerTransformer;
@@ -18,6 +18,7 @@ public class TutorialActivity extends AppCompatActivity implements ViewPager.OnP
     private ViewPager viewPager;
     private ArgbEvaluator argbEvaluator = new ArgbEvaluator();
     private Integer[] colors;
+    private static final String TAG = TutorialActivity.class.getSimpleName();
 
     public static Intent createIntent(Context context) {
         Intent intent = new Intent(context, TutorialActivity.class);
@@ -62,6 +63,7 @@ public class TutorialActivity extends AppCompatActivity implements ViewPager.OnP
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        Log.d(TAG, "positionOffset: " + positionOffset);
         viewPager.setBackgroundColor((Integer) argbEvaluator.evaluate(positionOffset, colors[position], colors[position + 1]));
 
     }
