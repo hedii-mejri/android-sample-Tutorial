@@ -30,11 +30,11 @@ public class TutorialPagerAdapter extends FragmentPagerAdapter{
             case 1:
                 return TutorialFragment.newInstance(R.layout.fragment_tutorial_second);
             case 2:
-                return TutorialFragment.newInstance(R.layout.fragment_tutorial_first);
+                return TutorialFragment.newInstance(R.layout.fragment_tutorial_third);
             case 3:
-                return TutorialFragment.newInstance(R.layout.fragment_tutorial_first);
+                return TutorialFragment.newInstance(R.layout.fragment_tutorial_fourth);
             case 4:
-                return TutorialFragment.newInstance(R.layout.fragment_tutorial_first);
+                return TutorialFragment.newInstance(R.layout.fragment_tutorial_fifth);
         }
     }
 

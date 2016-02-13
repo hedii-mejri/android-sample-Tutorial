@@ -28,30 +28,36 @@ public class ViewPagerTransformer implements ViewPager.PageTransformer {
         }
     }
 
-
     private void leftTransition(View page, float position) {
-        int parentId = page.getId();
-        switch (parentId) {
-            case R.id.layout_first:
-                transformFirst(page, position, (TutorialViewHolder.FirstViewHolder) page.getTag(), false);
-                break;
-            case R.id.layout_second:
-                transformSecond(page, position, (TutorialViewHolder.SecondViewHolder) page.getTag(), false);
-                break;
-        }
+        chooseViewHolder(page, position, false);
     }
 
     private void rightTransition(View page, float position) {
+        chooseViewHolder(page, position, true);
+    }
+
+    private void chooseViewHolder(View page, float position, boolean reverse) {
         int parentId = page.getId();
         switch (parentId) {
             case R.id.layout_first:
-                transformFirst(page, position, (TutorialViewHolder.FirstViewHolder) page.getTag(), true);
+                transformFirst(page, position, (TutorialViewHolder.FirstViewHolder) page.getTag(), !reverse);
                 break;
             case R.id.layout_second:
-                transformSecond(page, position, (TutorialViewHolder.SecondViewHolder) page.getTag(), false);
+                transformSecond(page, position, (TutorialViewHolder.SecondViewHolder) page.getTag(), !reverse);
+                break;
+            case R.id.layout_third:
+                transformThird(page, position, (TutorialViewHolder.ThirdViewHolder) page.getTag(), !reverse);
+                break;
+            case R.id.layout_fourth:
+                transformFourth(page, position, (TutorialViewHolder.FourthViewHolder) page.getTag(), !reverse);
+                break;
+            case R.id.layout_fifth:
+                transformFifth(page, position, (TutorialViewHolder.FifthViewHolder) page.getTag(), !reverse);
                 break;
         }
+
     }
+
     private void transformFirst(View page, float position, TutorialViewHolder.FirstViewHolder holder, boolean reverse) {
         Log.d(TAG, "transformFirst: " + reverse);
         if (reverse) {
@@ -64,6 +70,44 @@ public class ViewPagerTransformer implements ViewPager.PageTransformer {
 
     private void transformSecond(View page, float position, TutorialViewHolder.SecondViewHolder holder, boolean reverse) {
         Log.d(TAG, "transformSecond: " + reverse);
+        if (reverse) {
+            // right
+            holder.leftTopIcon.setTranslationX(position * page.getWidth() / 4);
+            holder.leftBottomIcon.setTranslationX(position * page.getWidth() / 4);
+            holder.rightTopIcon.setTranslationX(position * page.getWidth() / 8);
+            holder.rightBottomIcon.setTranslationX(position * page.getWidth() / 8);
+        } else {
+            // left
+            holder.leftTopIcon.setTranslationX(position * page.getWidth() / 8);
+            holder.leftBottomIcon.setTranslationX(position * page.getWidth() / 8);
+            holder.rightTopIcon.setTranslationX(position * page.getWidth() / 4);
+            holder.rightBottomIcon.setTranslationX(position * page.getWidth() / 4);
+        }
+        holder.centerIcon.setTranslationX(-position * page.getWidth());
+    }
+
+    private void transformThird(View page, float position, TutorialViewHolder.ThirdViewHolder holder, boolean reverse) {
+        Log.d(TAG, "transformThird: " + reverse);
+        if (reverse) {
+            // right
+        } else {
+            // left
+        }
+        holder.centerIcon.setTranslationX(-position * page.getWidth());
+    }
+
+    private void transformFourth(View page, float position, TutorialViewHolder.FourthViewHolder holder, boolean reverse) {
+        Log.d(TAG, "transformFourth: " + reverse);
+        if (reverse) {
+            // right
+        } else {
+            // left
+        }
+        holder.centerIcon.setTranslationX(-position * page.getWidth());
+    }
+
+    private void transformFifth(View page, float position, TutorialViewHolder.FifthViewHolder holder, boolean reverse) {
+        Log.d(TAG, "transformFifth: " + reverse);
         if (reverse) {
             // right
         } else {
