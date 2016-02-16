@@ -6,5 +6,5 @@ import android.view.View;
  * Created by sakemotoshinya on 16/02/12.
  */
 public interface ViewHolder {
-    void transition(View page, float position, boolean reverse);
+    void transition(View page, float position);
 }

@@ -18,7 +18,7 @@
         android:id="@+id/layout_indicator_transformer"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize">
 
@@ -59,10 +59,8 @@
     <ImageView
         android:id="@+id/image_icon"
         android:src="@mipmap/ic_launcher"
-        android:visibility="invisible"
-        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/extra_large_margin"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/large_margin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 

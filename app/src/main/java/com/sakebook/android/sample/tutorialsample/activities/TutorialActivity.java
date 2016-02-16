@@ -3,6 +3,8 @@ package com.sakebook.android.sample.tutorialsample.activities;
 import android.animation.ArgbEvaluator;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +24,12 @@ public class TutorialActivity extends AppCompatActivity implements ViewPager.OnP
     private ArgbEvaluator argbEvaluator = new ArgbEvaluator();
     private Integer[] colors;
     private static final String TAG = TutorialActivity.class.getSimpleName();
+    private View indicator1;
+    private View indicator2;
+    private View indicator3;
+    private View indicator4;
+    private View indicator5;
+
 
     public static Intent createIntent(Context context) {
         Intent intent = new Intent(context, TutorialActivity.class);
@@ -34,6 +42,15 @@ public class TutorialActivity extends AppCompatActivity implements ViewPager.OnP
         setContentView(R.layout.activity_tutorial);
         initColor();
         initViewPager();
+        initIndicator();
+    }
+
+    private void initIndicator() {
+        indicator1 = findViewById(R.id.view_indicator_1);
+        indicator2 = findViewById(R.id.view_indicator_2);
+        indicator3 = findViewById(R.id.view_indicator_3);
+        indicator4 = findViewById(R.id.view_indicator_4);
+        indicator5 = findViewById(R.id.view_indicator_5);
     }
 
     private void initViewPager() {
@@ -41,6 +58,7 @@ public class TutorialActivity extends AppCompatActivity implements ViewPager.OnP
         TutorialPagerAdapter adapter = new TutorialPagerAdapter(getSupportFragmentManager(), getApplicationContext());
         viewPager.setAdapter(adapter);
         viewPager.setPageTransformer(false, new ViewPagerTransformer());
+        viewPager.setOffscreenPageLimit(1);
         viewPager.addOnPageChangeListener(this);
         icon = (ImageView) findViewById(R.id.image_icon);
     }
@@ -58,13 +76,13 @@ public class TutorialActivity extends AppCompatActivity implements ViewPager.OnP
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        Log.d(TAG, "positionOffset: " + positionOffset);
+//        Log.d(TAG, "position: " + position + ", positionOffset: " + positionOffset + ", positionOffsetPixels: " + positionOffsetPixels);
         viewPager.setBackgroundColor((Integer) argbEvaluator.evaluate(positionOffset, colors[position], colors[position + 1]));
         if (position == 1) {
             icon.setVisibility(View.VISIBLE);
             icon.setScaleX(1 + positionOffset * 40);
             icon.setScaleY(1 + positionOffset * 40);
-            icon.setTranslationY(-positionOffsetPixels);
+            icon.setTranslationY(positionOffsetPixels);
             icon.setAlpha(3.0f - positionOffset * 3);
         } else {
             icon.setVisibility(View.INVISIBLE);
@@ -78,21 +96,13 @@ public class TutorialActivity extends AppCompatActivity implements ViewPager.OnP
 
     @Override
     public void onPageSelected(int position) {
-
     }
 
     @Override
     public void onPageScrollStateChanged(int state) {
-
     }
 
     private void indicatorTransform(int position, float positionOffset) {
-        View indicator1 = findViewById(R.id.view_indicator_1);
-        View indicator2 = findViewById(R.id.view_indicator_2);
-        View indicator3 = findViewById(R.id.view_indicator_3);
-        View indicator4 = findViewById(R.id.view_indicator_4);
-        View indicator5 = findViewById(R.id.view_indicator_5);
-
         switch (position) {
             case 0:
                 indicator1.setScaleX(2 - positionOffset);

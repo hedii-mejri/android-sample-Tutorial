@@ -17,11 +17,11 @@ public class FifthViewHolder implements ViewHolder{
     }
 
     @Override
-    public void transition(View page, float position, boolean reverse) {
-        if (reverse) {
-            // right
-        } else {
+    public void transition(View page, float position) {
+        if (-1 < position && position < 0) {
             // left
+        } else if (0 <= position && position <= 1) {
+            // right
         }
     }
 
