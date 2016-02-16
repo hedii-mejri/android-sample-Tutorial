@@ -6,11 +6,55 @@
     android:layout_height="match_parent"
     tools:context="com.sakebook.android.sample.tutorialsample.activities.TutorialActivity">
 
+
+
     <android.support.v4.view.ViewPager
         android:id="@+id/view_pager"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:id="@+id/layout_indicator_transformer"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize">
+
+        <View
+            android:id="@+id/view_indicator_1"
+            android:layout_margin="@dimen/small_margin"
+            android:background="@drawable/circle"
+            android:layout_width="@dimen/small_margin"
+            android:layout_height="@dimen/small_margin"/>
+        <View
+            android:id="@+id/view_indicator_2"
+            android:layout_margin="@dimen/small_margin"
+            android:background="@drawable/circle"
+            android:layout_width="@dimen/small_margin"
+            android:layout_height="@dimen/small_margin"/>
+        <View
+            android:id="@+id/view_indicator_3"
+            android:layout_margin="@dimen/small_margin"
+            android:background="@drawable/circle"
+            android:layout_width="@dimen/small_margin"
+            android:layout_height="@dimen/small_margin"/>
+        <View
+            android:id="@+id/view_indicator_4"
+            android:layout_margin="@dimen/small_margin"
+            android:background="@drawable/circle"
+            android:layout_width="@dimen/small_margin"
+            android:layout_height="@dimen/small_margin"/>
+        <View
+            android:id="@+id/view_indicator_5"
+            android:layout_margin="@dimen/small_margin"
+            android:background="@drawable/circle"
+            android:layout_width="@dimen/small_margin"
+            android:layout_height="@dimen/small_margin"/>
+
+    </LinearLayout>
+
 
     <ImageView
         android:id="@+id/image_icon"

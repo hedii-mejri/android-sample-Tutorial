@@ -72,6 +72,8 @@ public class TutorialActivity extends AppCompatActivity implements ViewPager.OnP
             icon.setScaleY(1);
         }
 
+        indicatorTransform(position, positionOffset);
+
     }
 
     @Override
@@ -82,5 +84,44 @@ public class TutorialActivity extends AppCompatActivity implements ViewPager.OnP
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    private void indicatorTransform(int position, float positionOffset) {
+        View indicator1 = findViewById(R.id.view_indicator_1);
+        View indicator2 = findViewById(R.id.view_indicator_2);
+        View indicator3 = findViewById(R.id.view_indicator_3);
+        View indicator4 = findViewById(R.id.view_indicator_4);
+        View indicator5 = findViewById(R.id.view_indicator_5);
+
+        switch (position) {
+            case 0:
+                indicator1.setScaleX(2 - positionOffset);
+                indicator1.setScaleY(2 - positionOffset);
+                indicator2.setScaleX(1 + positionOffset);
+                indicator2.setScaleY(1 + positionOffset);
+                break;
+            case 1:
+                indicator2.setScaleX(2 - positionOffset);
+                indicator2.setScaleY(2 - positionOffset);
+                indicator3.setScaleX(1 + positionOffset);
+                indicator3.setScaleY(1 + positionOffset);
+                break;
+            case 2:
+                indicator3.setScaleX(2 - positionOffset);
+                indicator3.setScaleY(2 - positionOffset);
+                indicator4.setScaleX(1 + positionOffset);
+                indicator4.setScaleY(1 + positionOffset);
+                break;
+            case 3:
+                indicator4.setScaleX(2 - positionOffset);
+                indicator4.setScaleY(2 - positionOffset);
+                indicator5.setScaleX(1 + positionOffset);
+                indicator5.setScaleY(1 + positionOffset);
+                break;
+            case 4:
+                indicator5.setScaleX(2 - positionOffset);
+                indicator5.setScaleY(2 - positionOffset);
+                break;
+        }
     }
 }
