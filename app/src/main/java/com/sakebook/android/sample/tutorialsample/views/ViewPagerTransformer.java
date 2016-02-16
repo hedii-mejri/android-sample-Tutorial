@@ -4,8 +4,7 @@ import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 
-import com.sakebook.android.sample.tutorialsample.R;
-
+import com.sakebook.android.sample.tutorialsample.views.holders.ViewHolder;
 
 /**
  * Created by sakemotoshinya on 16/02/11.
@@ -19,97 +18,12 @@ public class ViewPagerTransformer implements ViewPager.PageTransformer {
             // This page is way off-screen to the left.
         } else if (-1 < position && position < 0) {
             // left side shown View
-            leftTransition(page, position);
+            ((ViewHolder)page.getTag()).transition(page, position, false);
         } else if (0 <= position && position <= 1) {
             // right side shown View
-            rightTransition(page, position);
+            ((ViewHolder)page.getTag()).transition(page, position, true);
         } else { // (1,+Infinity]
             // This page is way off-screen to the right.
         }
     }
-
-    private void leftTransition(View page, float position) {
-        chooseViewHolder(page, position, false);
-    }
-
-    private void rightTransition(View page, float position) {
-        chooseViewHolder(page, position, true);
-    }
-
-    private void chooseViewHolder(View page, float position, boolean reverse) {
-        int parentId = page.getId();
-        switch (parentId) {
-            case R.id.layout_first:
-                transformFirst(page, position, (TutorialViewHolder.FirstViewHolder) page.getTag(), !reverse);
-                break;
-            case R.id.layout_second:
-                transformSecond(page, position, (TutorialViewHolder.SecondViewHolder) page.getTag(), !reverse);
-                break;
-            case R.id.layout_third:
-                transformThird(page, position, (TutorialViewHolder.ThirdViewHolder) page.getTag(), !reverse);
-                break;
-            case R.id.layout_fourth:
-                transformFourth(page, position, (TutorialViewHolder.FourthViewHolder) page.getTag(), !reverse);
-                break;
-            case R.id.layout_fifth:
-                transformFifth(page, position, (TutorialViewHolder.FifthViewHolder) page.getTag(), !reverse);
-                break;
-        }
-
-    }
-
-    private void transformFirst(View page, float position, TutorialViewHolder.FirstViewHolder holder, boolean reverse) {
-        Log.d(TAG, "transformFirst: " + reverse);
-        if (reverse) {
-            // right
-        } else {
-            // left
-        }
-        holder.centerIcon.setTranslationX(-position * page.getWidth());
-    }
-
-    private void transformSecond(View page, float position, TutorialViewHolder.SecondViewHolder holder, boolean reverse) {
-        Log.d(TAG, "transformSecond: " + reverse);
-        if (reverse) {
-            // right
-            holder.leftIcon.setTranslationX(position * page.getWidth() * 2);
-            holder.rightIcon.setTranslationX(position * page.getWidth());
-        } else {
-            // left
-            holder.leftIcon.setTranslationX(position * page.getWidth() * 2);
-            holder.rightIcon.setTranslationX(-position * page.getWidth() / 4);
-        }
-        holder.centerIcon.setTranslationX(-position * page.getWidth());
-    }
-
-    private void transformThird(View page, float position, TutorialViewHolder.ThirdViewHolder holder, boolean reverse) {
-        Log.d(TAG, "transformThird: " + reverse);
-        if (reverse) {
-            // right
-        } else {
-            // left
-        }
-        holder.centerIcon.setTranslationX(-position * page.getWidth());
-    }
-
-    private void transformFourth(View page, float position, TutorialViewHolder.FourthViewHolder holder, boolean reverse) {
-        Log.d(TAG, "transformFourth: " + reverse);
-        if (reverse) {
-            // right
-        } else {
-            // left
-        }
-        holder.centerIcon.setTranslationX(-position * page.getWidth());
-    }
-
-    private void transformFifth(View page, float position, TutorialViewHolder.FifthViewHolder holder, boolean reverse) {
-        Log.d(TAG, "transformFifth: " + reverse);
-        if (reverse) {
-            // right
-        } else {
-            // left
-        }
-        holder.centerIcon.setTranslationX(-position * page.getWidth());
-    }
-
 }
