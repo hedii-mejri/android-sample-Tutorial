@@ -3,4 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="amber200">#FFE082</color>
+    <color name="cyan200">#80DEEA</color>
+    <color name="deeppurple200">#B39DDB</color>
+    <color name="lime200">#E6EE9C</color>
+    <color name="deeporange200">#FFAB91</color>
+
 </resources>
