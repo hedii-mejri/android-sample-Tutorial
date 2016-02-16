@@ -72,16 +72,12 @@ public class ViewPagerTransformer implements ViewPager.PageTransformer {
         Log.d(TAG, "transformSecond: " + reverse);
         if (reverse) {
             // right
-            holder.leftTopIcon.setTranslationX(position * page.getWidth() / 4);
-            holder.leftBottomIcon.setTranslationX(position * page.getWidth() / 4);
-            holder.rightTopIcon.setTranslationX(position * page.getWidth() / 8);
-            holder.rightBottomIcon.setTranslationX(position * page.getWidth() / 8);
+            holder.leftIcon.setTranslationX(position * page.getWidth() * 2);
+            holder.rightIcon.setTranslationX(position * page.getWidth());
         } else {
             // left
-            holder.leftTopIcon.setTranslationX(position * page.getWidth() / 8);
-            holder.leftBottomIcon.setTranslationX(position * page.getWidth() / 8);
-            holder.rightTopIcon.setTranslationX(position * page.getWidth() / 4);
-            holder.rightBottomIcon.setTranslationX(position * page.getWidth() / 4);
+            holder.leftIcon.setTranslationX(position * page.getWidth() * 2);
+            holder.rightIcon.setTranslationX(-position * page.getWidth() / 4);
         }
         holder.centerIcon.setTranslationX(-position * page.getWidth());
     }

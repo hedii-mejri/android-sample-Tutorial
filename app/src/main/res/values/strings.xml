@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TutorialSample</string>
+    <string name="first_title">印象に残るチュートリアルを！</string>
+    <string name="second_title">単純な動き以外で注目させよう！</string>
+    <string name="third_title"></string>
+    <string name="fourth_title"></string>
+    <string name="fifth_title"></string>
 </resources>
