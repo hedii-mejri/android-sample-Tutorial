@@ -78,17 +78,17 @@ public class TutorialActivity extends AppCompatActivity implements ViewPager.OnP
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 //        Log.d(TAG, "position: " + position + ", positionOffset: " + positionOffset + ", positionOffsetPixels: " + positionOffsetPixels);
         viewPager.setBackgroundColor((Integer) argbEvaluator.evaluate(positionOffset, colors[position], colors[position + 1]));
-        if (position == 1) {
-            icon.setVisibility(View.VISIBLE);
-            icon.setScaleX(1 + positionOffset * 40);
-            icon.setScaleY(1 + positionOffset * 40);
-            icon.setTranslationY(positionOffsetPixels);
-            icon.setAlpha(3.0f - positionOffset * 3);
-        } else {
-            icon.setVisibility(View.INVISIBLE);
-            icon.setScaleX(1);
-            icon.setScaleY(1);
-        }
+//        if (position == 1) {
+//            icon.setVisibility(View.VISIBLE);
+//            icon.setScaleX(1 + positionOffset * 40);
+//            icon.setScaleY(1 + positionOffset * 40);
+//            icon.setTranslationY(positionOffsetPixels);
+//            icon.setAlpha(3.0f - positionOffset * 3);
+//        } else {
+//            icon.setVisibility(View.INVISIBLE);
+//            icon.setScaleX(1);
+//            icon.setScaleY(1);
+//        }
 
         indicatorTransform(position, positionOffset);
 

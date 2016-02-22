@@ -15,7 +15,6 @@ public class ViewPagerTransformer implements ViewPager.PageTransformer {
 
     @Override
     public void transformPage(View page, float position) {
-        Log.d(TAG, "page: " + page.getTag().getClass().getSimpleName() + ", position: " + position);
         if (position <= -1) { // [-Infinity,-1)
             // This page is way off-screen to the left.
         } else if (position <= 1) {
